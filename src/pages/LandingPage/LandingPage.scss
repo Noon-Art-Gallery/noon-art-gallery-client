@@ -1,0 +1,19 @@
+.landing-page {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  &__text {
+    padding: 20px;
+    h1,
+    p {
+      padding-bottom: 10px;
+    }
+  }
+  &__image {
+    padding: 10px 20px;
+  }
+}
