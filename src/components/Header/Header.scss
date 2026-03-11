@@ -1,0 +1,12 @@
+@use "../../partials/_variables.scss" as *;
+
+.nav-item {
+  color: $secondary-color;
+  padding: 0.5rem 1rem;
+}
+
+.header {
+  position: sticky;
+  width: 100%;
+  top: 0;
+}

@@ -1,6 +1,16 @@
 import "./LandingPage.scss";
 import Navbar from "../../components/Navbar/Navbar";
 import heroImage from "/images/workshop-begin.jpg";
+import { CheckCircle } from "@untitledui/icons";
+import { FeaturedIcon } from "@/components/foundations/featured-icon/featured-icon";
+import { Check } from "@untitledui/icons";
+import { Button } from "@/components/base/buttons/button";
+import { Copy01, DownloadCloud02, Edit01, Trash01 } from "@untitledui/icons";
+import { ButtonUtility } from "@/components/base/buttons/button-utility";
+import {
+  ButtonGroup,
+  ButtonGroupItem,
+} from "@/components/base/button-group/button-group";
 
 export default function LandingPage() {
   return (

@@ -1,13 +1,18 @@
 import "./App.scss";
-import LandingPage from "./pages/LandingPage/LandingPage";
-import Navbar from "./components/Navbar/Navbar";
+
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import { Provider } from "@/components/ui/provider";
 
 function App() {
   // const [count, setCount] = useState(0);
 
   return (
     <>
-      <LandingPage />;
+      <Provider>
+        <Header />
+        <Footer />
+      </Provider>
     </>
   );
 }

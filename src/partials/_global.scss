@@ -17,14 +17,13 @@
 html,
 body {
   width: 100%;
-
   margin: 0;
   padding: 0;
-  margin-top: 180px;
   * {
     overflow: auto;
   }
 }
+
 #root {
   width: 100%;
 }
@@ -70,6 +69,7 @@ p {
 
 button {
   @include fontStyle(1rem, 1.5rem, 500);
+  background-color: $primary-color;
 }
 
 .blank {
@@ -178,17 +178,40 @@ input {
   }
 }
 
-.admin-tab {
-  margin: 20px;
-}
-
 .logo {
   &__header {
-    width: 200px;
+    width: 13rem;
+  }
+  &__nav {
+    width: 4rem;
   }
 }
 
 ul {
   padding-inline-start: 0px;
   padding: 10px;
+}
+
+.hamburger-menu {
+  margin: 20px;
+  padding: 20px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#ul {
+  &--nav {
+    position: fixed;
+
+    top: 0;
+  }
+}
+
+link {
+  text-decoration: none;
+  color: $text-color;
 }
