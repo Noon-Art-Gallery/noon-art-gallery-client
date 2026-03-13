@@ -29,6 +29,7 @@ body {
 }
 
 h1 {
+  color: $secondary-color;
   @include fontStyle(2rem, 5rem, 400);
   @include desktop {
     @include fontStyle(1.5rem, 3rem, 500);
@@ -36,7 +37,7 @@ h1 {
 }
 
 h2 {
-  @include fontStyle(1.5rem, 2.2rem, 500);
+  @include fontStyle(1.5rem, 2rem, 500);
   font-family: "Noto Serif";
   @include desktop {
     @include fontStyle(1.5rem, 2rem, 500);
@@ -214,4 +215,44 @@ header {
 link {
   text-decoration: none;
   color: $text-color;
+}
+
+.button {
+  line-height: 1;
+  overflow: hidden;
+  width: 100%;
+  align-self: flex-start;
+  background-color: $secondary-color;
+  color: white;
+  border-radius: 100px;
+  margin-top: 0.625rem;
+
+  &--hover {
+    background-color: "#916b4e";
+  }
+  &--secondary {
+    color: $secondary-color;
+    background-color: $primary-color;
+    border-color: $secondary-color;
+    margin: 0;
+    &--hover {
+      background-color: white;
+    }
+  }
+  &--menu {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.paragraph {
+  color: $text-color;
+  &--intro {
+    text-align: center;
+  }
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
 }

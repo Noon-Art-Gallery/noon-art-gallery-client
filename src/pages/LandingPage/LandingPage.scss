@@ -1,16 +1,5 @@
-.landing-page {
-  display: flex;
-  flex-direction: column;
-}
-
-.hero-section {
-  display: flex;
-  flex-direction: column;
-  &__text {
-    padding: 1rem 1.25rem;
-    h1,
-    p {
-      padding-bottom: 0.625rem;
-    }
-  }
+.hero-image {
+  width: 100%;
+  height: 21.875rem;
+  margin-bottom: 1rem;
 }

@@ -11,12 +11,14 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
+import { FaInstagram } from "react-icons/fa";
+import { FiMail } from "react-icons/fi";
 
 export default function Footer() {
   return (
     <Box
       className="footer"
-      bg="#F7F3EE"
+      bg="#fff6ea"
       borderTop="1px solid"
       borderColor="gray.200"
       py={16}
@@ -64,10 +66,11 @@ export default function Footer() {
               Get updates about new paintings and workshops.
             </Text>
 
-            <Flex gap={2} alignItems="center">
+            <Flex gap={2} alignItems="center" direction="column" width="100%">
               <Input placeholder="Email address" bg="white" height={10} />
 
               <Button
+                className="button"
                 bg="#A77F5F"
                 color="white"
                 _hover={{ bg: "#916b4e" }}
@@ -78,6 +81,20 @@ export default function Footer() {
               </Button>
             </Flex>
           </Stack>
+          <Flex
+            className="social-links"
+            gap={6}
+            fontSize="sm"
+            direction="column"
+            alignItems="center"
+          >
+            <Link href="https://www.instagram.com/noon_art.gallery?igsh=MWZtdTR4ZzBua2pqdg%3D%3D&utm_source=qr">
+              <FaInstagram size="1.5rem" />
+            </Link>
+            <Link href="mailto:bandar.negin@gmail.com">
+              <FiMail size="1.4rem" />
+            </Link>
+          </Flex>
         </Flex>
 
         {/* Bottom bar */}
@@ -94,11 +111,6 @@ export default function Footer() {
           <Text fontSize="sm" color="gray.500">
             © 2026 Noon Art Gallery. All rights reserved.
           </Text>
-
-          <Flex gap={6} fontSize="sm">
-            <Link href="#">Instagram</Link>
-            <Link href="#">Email</Link>
-          </Flex>
         </Flex>
       </Container>
     </Box>

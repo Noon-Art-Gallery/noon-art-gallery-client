@@ -1,7 +1,9 @@
 import "./App.scss";
 
-import Header from "./components/Header/Header";
+import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import Example from "./components/Example/Example";
 import { Provider } from "@/components/ui/provider";
 
 function App() {
@@ -10,7 +12,9 @@ function App() {
   return (
     <>
       <Provider>
-        <Header />
+        {/* <Example /> */}
+        <Navbar />
+        <LandingPage />
         <Footer />
       </Provider>
     </>
