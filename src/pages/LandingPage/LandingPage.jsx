@@ -1,4 +1,6 @@
+import { Collection } from "react-aria-components";
 import "./LandingPage.scss";
+import InstaGallery from "@/components/InstaGallery/InstaGallery";
 
 import {
   Box,
@@ -15,23 +17,30 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-const featuredWorks = [
+const collections = [
   {
-    title: "Becoming",
-    image: "/images/collections/inner-journey/becoming.jpg",
-    medium: "Oil on Canvas",
-  },
-  {
-    title: "Consciousness in Orbit",
-    image: "/images/collections/inner-journey/consciousness-in-orbit.jpg",
-    medium: "Oil on Canvas",
-  },
-  {
-    title: "The Galaxy Within",
-    image: "/images/collections/inner-journey/the-galaxy-within.jpg",
-    medium: "Oil on Canvas",
+    collection: "Inner Journey",
+    works: [
+      {
+        title: "Becoming",
+        image: "/images/collections/inner-journey/becoming.jpg",
+        medium: "Oil on Canvas",
+      },
+      {
+        title: "Consciousness in Orbit",
+        image: "/images/collections/inner-journey/consciousness-in-orbit.jpg",
+        medium: "Oil on Canvas",
+      },
+      {
+        title: "The Galaxy Within",
+        image: "/images/collections/inner-journey/the-galaxy-within.jpg",
+        medium: "Oil on Canvas",
+      },
+    ],
   },
 ];
+
+const featuredWorks = collections[0].works;
 
 const workshops = [
   {
@@ -164,7 +173,47 @@ export default function HomePage() {
           <Button className="button">Learn More</Button>
         </Stack>
       </Container>
+      {/* Commission Section */}
+      <Container id="commission" maxW="1200px" py={{ base: 16, md: 24 }}>
+        <Grid
+          templateColumns={{ base: "1fr", md: "1fr 1fr" }}
+          gap={{ base: 10, md: 14 }}
+          alignItems="center"
+        >
+          <Box>
+            <Image
+              src="/images/collections/custom/spring-vase.png"
+              alt="painting of a vase with flowers"
+              w="100%"
+              h={{ base: "460px", md: "560px" }}
+              objectFit="cover"
+            />
+          </Box>
 
+          <Stack spacing={6}>
+            <Text
+              textTransform="uppercase"
+              letterSpacing="0.14em"
+              fontSize="xs"
+              color="rgba(44,44,44,0.62)"
+            >
+              Commission
+            </Text>
+            <Heading fontSize={{ base: "2xl", md: "4xl" }} fontWeight="medium">
+              Commission a personal piece
+            </Heading>
+            <Text className="paragraph" lineHeight="1.95">
+              Some works begin as a conversation, a memory, a feeling, a place,
+              or a moment that deserves to remain alive in visual form.
+            </Text>
+            <Text className="paragraph" lineHeight="1.95">
+              Commissioned paintings are created with care, collaboration, and
+              emotional depth.
+            </Text>
+            <Button className="button">Start a Commission</Button>
+          </Stack>
+        </Grid>
+      </Container>
       {/* Featured Works */}
       <Container id="works" maxW="1200px" py={{ base: 8, md: 14 }}>
         <Stack spacing={8}>
@@ -182,15 +231,10 @@ export default function HomePage() {
                 fontSize={{ base: "2xl", md: "4xl" }}
                 fontWeight="medium"
               >
-                Featured paintings
+                Featured Collection
               </Heading>
             </Stack>
-
-            <Link href="/shop" fontSize="sm" textDecoration="underline">
-              Explore all works
-            </Link>
           </Flex>
-
           <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
             {featuredWorks.map((work) => (
               <Box key={work.title}>
@@ -218,49 +262,6 @@ export default function HomePage() {
         </Stack>
       </Container>
 
-      {/* Commission Section */}
-      <Container id="commission" maxW="1200px" py={{ base: 16, md: 24 }}>
-        <Grid
-          templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-          gap={{ base: 10, md: 14 }}
-          alignItems="center"
-        >
-          <Box>
-            <Image
-              src="/images/collections/custom/spring-vase.png"
-              alt="painting of a vase with flowers"
-              w="100%"
-              h={{ base: "460px", md: "560px" }}
-              objectFit="cover"
-            />
-          </Box>
-
-          <Stack spacing={6}>
-            <Text
-              textTransform="uppercase"
-              letterSpacing="0.14em"
-              fontSize="xs"
-              color="rgba(44,44,44,0.62)"
-            >
-              Commission
-            </Text>
-
-            <Heading fontSize={{ base: "2xl", md: "4xl" }} fontWeight="medium">
-              Commission a personal piece
-            </Heading>
-
-            <Text lineHeight="1.95">
-              Some works begin as a conversation — a memory, a feeling, a place,
-              or a moment that deserves to remain alive in visual form.
-              Commissioned paintings are created with care, collaboration, and
-              emotional depth.
-            </Text>
-
-            <Button className="button">Start a Commission</Button>
-          </Stack>
-        </Grid>
-      </Container>
-
       {/* Workshops */}
       <Box id="workshops" py={{ base: 16, md: 24 }}>
         <Container maxW="1200px">
@@ -272,14 +273,14 @@ export default function HomePage() {
                 fontSize="xs"
                 color="rgba(44,44,44,0.62)"
               >
-                Workshops
+                Events
               </Text>
 
               <Heading
                 fontSize={{ base: "2xl", md: "4xl" }}
                 fontWeight="medium"
               >
-                Upcoming classes & gatherings
+                Past Workshops
               </Heading>
             </Stack>
 
@@ -340,10 +341,6 @@ export default function HomePage() {
           >
             <Input
               placeholder="Email address"
-              bg="white"
-              h="52px"
-              borderColor="rgba(44,44,44,0.14)"
-              _focus={{ borderColor: "#A77F5F", boxShadow: "none" }}
               type="email"
               autoComplete="email"
             />
@@ -351,6 +348,9 @@ export default function HomePage() {
           </Flex>
         </Stack>
       </Container>
+
+      {/* Instagram Gallery */}
+      <InstaGallery />
     </Box>
   );
 }

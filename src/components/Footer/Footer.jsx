@@ -21,7 +21,7 @@ export default function Footer() {
       bg="#fff6ea"
       borderTop="1px solid"
       borderColor="gray.200"
-      py={16}
+      py={4}
     >
       <Container maxW="1200px">
         <Flex
@@ -43,11 +43,25 @@ export default function Footer() {
             <Heading size="md">Negin Bandar</Heading>
 
             <Text fontSize="sm" color="gray.600">
-              Oil paintings exploring transformation, emotion, and memory.
-              Original works and intimate workshops.
+              Oil Painting Artist & Art Instructor
             </Text>
           </Stack>
 
+          {/* Social Links*/}
+          <Flex
+            className="social-links"
+            gap={6}
+            fontSize="sm"
+            direction="column"
+            alignItems="center"
+          >
+            <Link href="https://www.instagram.com/noon_art.gallery?igsh=MWZtdTR4ZzBua2pqdg%3D%3D&utm_source=qr">
+              <FaInstagram size="1.5rem" />
+            </Link>
+            <Link href="mailto:bandar.negin@gmail.com">
+              <FiMail size="1.4rem" />
+            </Link>
+          </Flex>
           {/* Navigation */}
           <Stack spacing={3}>
             <Heading size="sm">Explore</Heading>
@@ -81,20 +95,6 @@ export default function Footer() {
               </Button>
             </Flex>
           </Stack>
-          <Flex
-            className="social-links"
-            gap={6}
-            fontSize="sm"
-            direction="column"
-            alignItems="center"
-          >
-            <Link href="https://www.instagram.com/noon_art.gallery?igsh=MWZtdTR4ZzBua2pqdg%3D%3D&utm_source=qr">
-              <FaInstagram size="1.5rem" />
-            </Link>
-            <Link href="mailto:bandar.negin@gmail.com">
-              <FiMail size="1.4rem" />
-            </Link>
-          </Flex>
         </Flex>
 
         {/* Bottom bar */}
@@ -108,8 +108,11 @@ export default function Footer() {
           direction={{ base: "column", md: "row" }}
           gap={4}
         >
-          <Text fontSize="sm" color="gray.500">
+          <Text fontSize="sm" color="gray.500" alignSelf={"center"}>
             © 2026 Noon Art Gallery. All rights reserved.
+          </Text>
+          <Text fontSize="sm" color="gray.500" alignSelf={"center"}>
+            Created by Noon Creative Studio
           </Text>
         </Flex>
       </Container>
