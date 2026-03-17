@@ -15,7 +15,7 @@ export default function InstaGallery() {
             <iframe
               src={url}
               width="100%"
-              height="480"
+              height="500"
               style={{ border: "none", borderRadius: "12px" }}
               loading="lazy"
             />
