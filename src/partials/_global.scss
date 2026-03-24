@@ -1,0 +1,260 @@
+@use "./typography";
+@use "./mixins" as *;
+@use "./variables" as *;
+
+* {
+  margin: 0;
+  font-family: "Nunito";
+  background-color: $primary-color;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  * {
+    overflow: auto;
+  }
+}
+
+#root {
+  width: 100%;
+}
+
+h1 {
+  color: $secondary-color;
+  @include fontStyle(2rem, 5rem, 400);
+  @include desktop {
+    @include fontStyle(1.5rem, 3rem, 500);
+  }
+}
+
+h2 {
+  @include fontStyle(1.5rem, 2rem, 500);
+  font-family: "Noto Serif";
+  @include desktop {
+    @include fontStyle(1.5rem, 2rem, 500);
+  }
+}
+
+h3 {
+  @include fontStyle(1.3rem, 3rem, 400);
+  font-family: "Noto Serif";
+  @include desktop {
+    @include fontStyle(1.3rem, 2rem, 500);
+  }
+}
+
+h4 {
+  @include fontStyle(1.25rem, 1.6rem, 300);
+  @include desktop {
+    @include fontStyle(1rem, 2rem, 500);
+  }
+}
+
+label,
+input,
+p {
+  @include fontStyle(1rem, 1.5rem, 400);
+  @include desktop {
+    @include fontStyle(1rem, 1.5rem, 500);
+  }
+}
+
+button {
+  @include fontStyle(1rem, 1.5rem, 500);
+  background-color: $primary-color;
+}
+
+.blank {
+  width: 100%;
+  height: 6.25rem;
+}
+
+.divider {
+  &--row {
+    width: 100%;
+    height: 0.0625rem;
+    background-color: $secondary-color;
+    margin: 10px 0;
+  }
+}
+
+input {
+  width: 100%;
+  height: 2.8rem;
+  padding: 0.125rem;
+  margin-top: 0.125rem;
+  border: 1px $secondary-color solid;
+  border-radius: 80px;
+  background-color: white;
+
+  &::placeholder {
+    padding-left: 5px;
+    color: $secondary-color;
+  }
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.icon {
+  margin-right: 10px;
+  &--small {
+    width: 27.2px;
+  }
+  &--large {
+    width: 28.8px;
+  }
+  &--location {
+    width: 29px;
+    align-self: flex-start;
+    margin-top: 6px;
+    @include tablet {
+      align-self: center;
+      margin-top: 0;
+    }
+  }
+}
+
+.error-message {
+  display: flex;
+
+  align-items: flex-start;
+  &__error {
+    font-size: 1rem;
+    color: $accent-color;
+    padding: 0;
+  }
+  img {
+    align-self: flex-start;
+    margin-right: 4px;
+  }
+}
+
+.bold {
+  font-family: "Noto Serif";
+}
+
+.greeting {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0 1rem 0;
+  width: 100%;
+
+  &__image {
+    width: 100%;
+  }
+
+  &__text {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 1.3rem 0;
+    @include tablet {
+      width: auto;
+    }
+    @include desktop {
+      width: 100%;
+    }
+  }
+  &__title {
+    font-size: 2rem;
+    width: 100%;
+  }
+}
+
+.logo {
+  &__header {
+    width: 13rem;
+  }
+  &__nav {
+    width: 4rem;
+  }
+}
+
+ul {
+  padding-inline-start: 0px;
+  padding: 10px;
+}
+
+.hamburger-menu {
+  margin: 20px;
+  padding: 20px;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#ul {
+  &--nav {
+    position: fixed;
+
+    top: 0;
+  }
+}
+
+link {
+  text-decoration: none;
+  color: $text-color;
+}
+
+.button {
+  height: 3rem;
+  overflow: hidden;
+  width: 100%;
+  align-self: flex-start;
+  background-color: $secondary-color;
+  color: white;
+  border-radius: 100px;
+  margin-top: 0.625rem;
+
+  &--hover {
+    background-color: "#916b4e";
+  }
+  &--secondary {
+    color: $secondary-color;
+    background-color: $primary-color;
+    border-color: $secondary-color;
+    margin: 0;
+    &--hover {
+      background-color: white;
+    }
+  }
+  &--menu {
+    width: 5rem;
+    height: 5rem;
+  }
+}
+
+.paragraph {
+  color: $text-color;
+  &--intro {
+    text-align: center;
+  }
+}
+
+.container {
+  width: 85%;
+  margin: 0 auto;
+}

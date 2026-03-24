@@ -1,0 +1,8 @@
+@use "../../partials/_variables.scss" as *;
+@use "../../partials/_mixins.scss" as *;
+
+.navbar {
+  position: sticky;
+  width: 100%;
+  top: 0;
+}
