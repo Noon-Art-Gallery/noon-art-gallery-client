@@ -1,4 +1,5 @@
 import { Box, Heading, SimpleGrid } from "@chakra-ui/react";
+import { Fullscreen } from "lucide-react";
 
 const posts = ["https://www.instagram.com/p/DOwDluEkVj_/embed"];
 
