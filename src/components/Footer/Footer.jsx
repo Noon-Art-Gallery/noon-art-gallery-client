@@ -37,7 +37,7 @@ export default function Footer() {
               width={20}
               margin={1}
               rounded="md"
-              src="src/assets/images/logo-large.svg"
+              src="/logo/logo-large.svg"
               alt="logo"
             />
             <Heading size="md">Negin Bandar</Heading>
