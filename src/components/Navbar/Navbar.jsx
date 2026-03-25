@@ -24,7 +24,7 @@ export default function Navbar() {
           height="5rem"
           margin={1}
           rounded="md"
-          src="src/assets/images/logo-large.svg"
+          src="/logo/logo-large.svg"
           alt="logo"
         />
         <Stack className="menu--mobile" gap="4" align="flex-start">
