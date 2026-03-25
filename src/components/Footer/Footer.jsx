@@ -47,6 +47,15 @@ export default function Footer() {
             </Text>
           </Stack>
 
+          {/* Navigation */}
+          <Stack spacing={3}>
+            <Heading size="sm">Explore</Heading>
+
+            <Link href="/shop">Shop</Link>
+            <Link href="/workshops">Workshops</Link>
+            <Link href="/about">About</Link>
+            <Link href="/contact">Contact</Link>
+          </Stack>
           {/* Social Links*/}
           <Flex
             className="social-links"
@@ -62,18 +71,9 @@ export default function Footer() {
               <FiMail size="1.4rem" />
             </Link>
           </Flex>
-          {/* Navigation */}
-          <Stack spacing={3}>
-            <Heading size="sm">Explore</Heading>
-
-            <Link href="/shop">Shop</Link>
-            <Link href="/workshops">Workshops</Link>
-            <Link href="/about">About</Link>
-            <Link href="/contact">Contact</Link>
-          </Stack>
 
           {/* Newsletter */}
-          <Stack spacing={4} maxW="300px">
+          <Stack spacing={4} width={"100%"}>
             <Heading size="sm">Stay Connected</Heading>
 
             <Text fontSize="sm" color="gray.600">

@@ -6,3 +6,29 @@
   width: 100%;
   top: 0;
 }
+
+.menu {
+  &--mobile {
+    @include tablet {
+      display: none !important;
+    }
+  }
+  &--desk {
+    @include mobile {
+      display: none !important;
+    }
+    @include tablet {
+      display: flex !important;
+    }
+  }
+}
+
+.nav-link {
+  color: $text-color;
+  font-weight: $font-demi;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: $secondary-color;
+  }
+}

@@ -18,11 +18,10 @@ export default function Navbar() {
   const menu = useMenu();
   const navLinks = ["Collections", "Workshops", "Commission", "Portfolio"];
   return (
-    <Container className="navbar" maxW="75rem" py={5}>
+    <Container className="navbar" maxW="100%" py={1}>
       <Flex justify="space-between" align="center">
         <Image
           height="5rem"
-          margin={1}
           rounded="md"
           src="/logo/logo-large.svg"
           alt="logo"
@@ -36,7 +35,7 @@ export default function Navbar() {
             </Menu.Trigger>
             <Portal>
               <Menu.Positioner width="100%">
-                <Menu.Content height="md">
+                <Menu.Content height="sm">
                   {navLinks.map((text) => (
                     <Menu.Item
                       key={text}
@@ -56,20 +55,17 @@ export default function Navbar() {
             </Portal>
           </Menu.RootProvider>
         </Stack>
-        {/* <Flex gap={10} fontSize="sm">
-          <Link className="nav-item" href="#Portfolio">
-            Portfolio
-          </Link>
-          <Link className="nav-item" href="#Collections">
-            Collections
-          </Link>
-          <Link className="nav-item" href="#Workshops">
-            Workshops
-          </Link>
-          <Link className="nav-item" href="#Shop">
-            Shop
-          </Link>
-        </Flex> */}
+        <Flex className="menu--desk" gap={10} fontSize="sm">
+          {navLinks.map((text) => (
+            <Link
+              key={text}
+              href={`/${text.toLowerCase().replace(" ", "-")}`}
+              className="nav-link"
+            >
+              {text}
+            </Link>
+          ))}
+        </Flex>
       </Flex>
     </Container>
   );

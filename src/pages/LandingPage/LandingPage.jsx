@@ -80,7 +80,13 @@ export default function HomePage() {
         />
         <Box position="absolute" inset="0" />
 
-        <Container maxW="1200px" position="relative" zIndex="1" padding={5}>
+        <Container
+          maxW="1200px"
+          position="relative"
+          zIndex="1"
+          padding={5}
+          paddingTop={1}
+        >
           <Image
             src="/images/workshops/lavender2025/untitled-5.jpg"
             alt="Exhibition"
