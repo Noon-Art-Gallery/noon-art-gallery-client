@@ -70,15 +70,15 @@ export default function HomePage() {
         position="relative"
         overflow="hidden"
       >
-        <Box
+        {/* <Box
           position="absolute"
           inset="0"
           bgImage="url('/hero.jpg')"
           bgSize="cover"
           bgPosition="center"
           filter="brightness(0.72)"
-        />
-        <Box position="absolute" inset="0" />
+        /> */}
+        {/* <Box position="absolute" inset="0" /> */}
 
         <Container
           maxW="1200px"
@@ -86,13 +86,24 @@ export default function HomePage() {
           zIndex="1"
           padding={5}
           paddingTop={1}
+          className="hero"
+          display="flex"
+          flexDirection={{ base: "column", md: "row" }}
+          alignItems={{ base: "stretch", md: "flex-start" }}
         >
           <Image
             src="/images/workshops/lavender2025/untitled-5.jpg"
             alt="Exhibition"
-            className="hero-image"
+            className="hero__image"
+            flex={{ base: 1, md: "300px" }}
           />
-          <Stack spacing={6} maxW="680px" color="black">
+          <Stack
+            spacing={6}
+            maxW="680px"
+            color="black"
+            classname="hero__parag"
+            paddingLeft={{ base: 0, md: 10 }}
+          >
             <Text
               textTransform="uppercase"
               letterSpacing="0.12em"
@@ -144,7 +155,7 @@ export default function HomePage() {
       </Box>
 
       {/* Intro */}
-      <Container className="container" py={{ base: 16, md: 24 }}>
+      <Container className="container " py={{ base: 16, md: 24 }}>
         <Stack spacing={6} textAlign="center">
           <Text
             textTransform="uppercase"
@@ -205,9 +216,7 @@ export default function HomePage() {
             >
               Commission
             </Text>
-            <Heading fontSize={{ base: "2xl", md: "4xl" }} fontWeight="medium">
-              Commission a personal piece
-            </Heading>
+            <Heading>Commission a personal piece</Heading>
             <Text className="paragraph" lineHeight="1.95">
               Some works begin as a conversation, a memory, a feeling, a place,
               or a moment that deserves to remain alive in visual form.
@@ -236,6 +245,7 @@ export default function HomePage() {
               <Heading
                 fontSize={{ base: "2xl", md: "4xl" }}
                 fontWeight="medium"
+                lineHeight={2.2}
               >
                 Featured Collection
               </Heading>
@@ -330,21 +340,20 @@ export default function HomePage() {
       {/* Newsletter */}
       <Container maxW="900px" py={{ base: 16, md: 24 }}>
         <Stack spacing={5} textAlign="center" align="center">
-          <Heading fontSize={{ base: "2xl", md: "4xl" }} fontWeight="medium">
+          <Heading
+            fontSize={{ base: "2xl", md: "4xl" }}
+            lineHeight={1.2}
+            fontWeight="medium"
+          >
             Stay connected
           </Heading>
 
-          <Text maxW="620px" color="rgba(44,44,44,0.75)" lineHeight="1.9">
+          <Text maxW="620px" color="rgba(44,44,44,0.75)">
             Receive occasional updates about new paintings, exhibitions, and
             upcoming workshops.
           </Text>
 
-          <Flex
-            w="100%"
-            maxW="560px"
-            direction={{ base: "column", md: "row" }}
-            gap={3}
-          >
+          <Flex w="100%" maxW="560px" direction="column" gap={3}>
             <Input
               placeholder="Email address"
               type="email"

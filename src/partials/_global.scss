@@ -40,7 +40,7 @@ h2 {
   @include fontStyle(1.5rem, 2rem, 500);
   font-family: "Noto Serif";
   @include desktop {
-    @include fontStyle(1.5rem, 2rem, 500);
+    @include fontStyle(1.5rem, 2.5rem, 500);
   }
 }
 
@@ -48,7 +48,7 @@ h3 {
   @include fontStyle(1.3rem, 3rem, 400);
   font-family: "Noto Serif";
   @include desktop {
-    @include fontStyle(1.3rem, 2rem, 500);
+    @include fontStyle(1.3rem, 2.5rem, 500);
   }
 }
 
@@ -95,6 +95,10 @@ input {
   border: 1px $secondary-color solid;
   border-radius: 80px;
   background-color: white;
+  @include tablet {
+    max-width: 375px;
+    align-self: center;
+  }
 
   &::placeholder {
     padding-left: 5px;
@@ -228,7 +232,10 @@ link {
   color: white;
   border-radius: 100px;
   margin-top: 0.625rem;
-
+  @include tablet {
+    max-width: 375px;
+    align-self: center;
+  }
   &--hover {
     background-color: "#916b4e";
   }
