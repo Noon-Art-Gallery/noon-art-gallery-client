@@ -63,100 +63,97 @@ export default function HomePage() {
   return (
     <Box color="#2C2C2C">
       {/* Hero */}
-      <Box
-        minH={{ base: "85vh", md: "95vh" }}
-        display="flex"
-        alignItems="center"
+
+      <Container
+        maxW="100%"
+        height="350px"
         position="relative"
-        overflow="hidden"
+        zIndex="1"
+        padding={5}
+        paddingTop={1}
+        className="hero"
+        display="flex"
+        flexDirection={{ base: "column", md: "row" }}
+        alignItems={{ base: "stretch", md: "flex-start" }}
       >
-        {/* <Box
+        <Image
+          className="hero__background"
+          src="/images/workshops/lavender2025/untitled-5.jpg"
+          position="absolute"
+          top="0"
+          left="0"
+          w="100%"
+          h="100%"
+          objectFit="cover"
+          objectPosition="center 80%"
+        />
+        <Box
+          className="background-overlay"
           position="absolute"
           inset="0"
-          bgImage="url('/hero.jpg')"
-          bgSize="cover"
-          bgPosition="center"
-          filter="brightness(0.72)"
-        /> */}
-        {/* <Box position="absolute" inset="0" /> */}
-
-        <Container
-          maxW="1200px"
+          bg="rgba(0, 0, 0, 0.35)"
+        />
+        <Box
+          className="hero__text"
+          width
           position="relative"
           zIndex="1"
-          padding={5}
-          paddingTop={1}
-          className="hero"
+          h="100%"
           display="flex"
-          flexDirection={{ base: "column", md: "row" }}
-          alignItems={{ base: "stretch", md: "flex-start" }}
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+          color="white"
+          backgroundColor={"transparent"}
+          textAlign="center"
         >
-          <Image
-            src="/images/workshops/lavender2025/untitled-5.jpg"
-            alt="Exhibition"
-            className="hero__image"
-            flex={{ base: 1, md: "300px" }}
-          />
+          <Heading
+            fontSize={{ base: "4xl", md: "6xl" }}
+            lineHeight="1.15"
+            fontWeight="medium"
+            backgroundColor={"transparent"}
+          >
+            Art is therapy
+          </Heading>
+          <Text
+            fontSize={{ base: "md", md: "lg" }}
+            maxW="560px"
+            opacity={0.95}
+            className="paragraph"
+            backgroundColor={"transparent"}
+            color="white"
+            paddingTop={"10px"}
+          >
+            A quiet space to breathe, feel, and reconnect with yourself.
+          </Text>
+          <Flex
+            className="button--duo"
+            gap={4}
+            wrap="wrap"
+            pt={2}
+            backgroundColor={"transparent"}
+          >
+            <Button className="button">Order an Artwork</Button>
+
+            <Button className="button button--secondary">
+              Upcoming Workshops
+            </Button>
+          </Flex>
+        </Box>
+      </Container>
+
+      {/* Intro */}
+      <Container className="container " py={{ base: 16, md: 24 }}>
+        <Stack spacing={6} textAlign="center">
           <Stack
             spacing={6}
             maxW="680px"
             color="black"
             classname="hero__parag"
             paddingLeft={{ base: 0, md: 10 }}
-          >
-            <Text
-              textTransform="uppercase"
-              letterSpacing="0.12em"
-              fontSize="sm"
-              opacity={0.9}
-              lineHeight="2"
-            >
-              Artist: Negin Bandar
-            </Text>
+          ></Stack>
 
-            <Heading
-              fontSize={{ base: "4xl", md: "6xl" }}
-              lineHeight="1.15"
-              fontWeight="medium"
-            >
-              Art is therapy
-            </Heading>
-
-            <Text
-              fontSize={{ base: "md", md: "lg" }}
-              maxW="560px"
-              opacity={0.95}
-              className="paragraph"
-            >
-              Painting is more than an artwork. It is a quiet space to breathe,
-              feel, and reconnect with yourself.
-            </Text>
-
-            <Text
-              fontSize={{ base: "md", md: "lg" }}
-              maxW="560px"
-              opacity={0.95}
-              className="paragraph"
-            >
-              Through original paintings, workshops, and commissioned pieces, I
-              explore how art can bring softness, reflection, and emotional
-              healing into everyday life.
-            </Text>
-
-            <Flex className="button--duo" gap={4} wrap="wrap" pt={2}>
-              <Button className="button">View Collection</Button>
-
-              <Button className="button button--secondary">
-                Explore Workshops
-              </Button>
-            </Flex>
-          </Stack>
-        </Container>
-      </Box>
-
-      {/* Intro */}
-      <Container className="container " py={{ base: 16, md: 24 }}>
-        <Stack spacing={6} textAlign="center">
+          {/* About the Artist */}
           <Text
             textTransform="uppercase"
             letterSpacing="0.14em"
@@ -173,18 +170,29 @@ export default function HomePage() {
             alt="Artist's Photo"
             margin={"auto"}
           />
+          <Text
+            textTransform="uppercase"
+            letterSpacing="0.12em"
+            fontSize="sm"
+            opacity={0.9}
+            lineHeight="2"
+          >
+            Artist: Negin Bandar
+          </Text>
 
           <Heading>
             Exploring the intersection of art, healing, and technology.
           </Heading>
 
-          <Text className="paragraph paragraph--intro">
-            Art has been part of my life since childhood.
-          </Text>
-          <Text className="paragraph paragraph--intro">
-            I began attending painting classes at the age of six, and although
-            my academic path later led me into engineering and a background in
-            technology, art has always remained my first passion...
+          <Text
+            fontSize={{ base: "md", md: "lg" }}
+            maxW="560px"
+            opacity={0.95}
+            className="paragraph"
+          >
+            Through original paintings, workshops, and commissioned pieces, I
+            explore how art can bring softness, reflection, and emotional
+            healing into everyday life.
           </Text>
 
           <Button className="button">Learn More</Button>
