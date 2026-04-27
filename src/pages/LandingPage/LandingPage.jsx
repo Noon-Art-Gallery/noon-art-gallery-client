@@ -61,16 +61,14 @@ const workshops = [
 
 export default function HomePage() {
   return (
-    <Box color="#2C2C2C">
+    <Box>
       {/* Hero */}
 
       <Container
         maxW="100%"
-        height="350px"
+        height="23.4375rem"
         position="relative"
         zIndex="1"
-        padding={5}
-        paddingTop={1}
         className="hero"
         display="flex"
         flexDirection={{ base: "column", md: "row" }}
@@ -144,15 +142,7 @@ export default function HomePage() {
 
       {/* Intro */}
       <Container className="container " py={{ base: 16, md: 24 }}>
-        <Stack spacing={6} textAlign="center">
-          <Stack
-            spacing={6}
-            maxW="680px"
-            color="black"
-            classname="hero__parag"
-            paddingLeft={{ base: 0, md: 10 }}
-          ></Stack>
-
+        <Stack spacing={5} textAlign="center" gap={5}>
           {/* About the Artist */}
           <Text
             textTransform="uppercase"
@@ -180,8 +170,8 @@ export default function HomePage() {
             Artist: Negin Bandar
           </Text>
 
-          <Heading>
-            Exploring the intersection of art, healing, and technology.
+          <Heading textAlign={"left"}>
+            Finding my way through art, healing, and technology!
           </Heading>
 
           <Text
@@ -189,6 +179,7 @@ export default function HomePage() {
             maxW="560px"
             opacity={0.95}
             className="paragraph"
+            textAlign={"left"}
           >
             Through original paintings, workshops, and commissioned pieces, I
             explore how art can bring softness, reflection, and emotional
@@ -286,7 +277,7 @@ export default function HomePage() {
         </Stack>
       </Container>
 
-      {/* Workshops */}
+      {/* Events */}
       <Box id="workshops" py={{ base: 16, md: 24 }}>
         <Container maxW="1200px">
           <Stack spacing={8}>
@@ -307,7 +298,7 @@ export default function HomePage() {
                 Past Workshops
               </Heading>
             </Stack>
-
+            {/* Workshops */}
             <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
               {workshops.map((item) => (
                 <Box

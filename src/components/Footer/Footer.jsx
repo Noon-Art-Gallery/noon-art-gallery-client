@@ -11,7 +11,7 @@ import {
   Button,
   Image,
 } from "@chakra-ui/react";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebook, FaInstagram } from "react-icons/fa";
 import { FiMail } from "react-icons/fi";
 
 export default function Footer() {
@@ -23,15 +23,15 @@ export default function Footer() {
       borderColor="gray.200"
       py={4}
     >
-      <Container maxW="1200px">
+      <Container maxW="1200px" align={"center"} alignItems={"center"}>
         <Flex
           justify="space-between"
-          align="start"
           direction={{ base: "column", md: "row" }}
           gap={10}
+          alignItems={"center"}
         >
           {/* Artist Info */}
-          <Stack spacing={4} maxW="300px">
+          <Stack spacing={4} maxW="300px" alignItems={"center"}>
             <Image
               height="5rem"
               width={20}
@@ -48,7 +48,7 @@ export default function Footer() {
           </Stack>
 
           {/* Navigation */}
-          <Stack spacing={3}>
+          <Stack gap={5} alignItems={"center"}>
             <Heading size="sm">Explore</Heading>
 
             <Link href="/shop">Shop</Link>
@@ -56,24 +56,9 @@ export default function Footer() {
             <Link href="/about">About</Link>
             <Link href="/contact">Contact</Link>
           </Stack>
-          {/* Social Links*/}
-          <Flex
-            className="social-links"
-            gap={6}
-            fontSize="sm"
-            direction="column"
-            alignItems="center"
-          >
-            <Link href="https://www.instagram.com/noon_art.gallery?igsh=MWZtdTR4ZzBua2pqdg%3D%3D&utm_source=qr">
-              <FaInstagram size="1.5rem" />
-            </Link>
-            <Link href="mailto:bandar.negin@gmail.com">
-              <FiMail size="1.4rem" />
-            </Link>
-          </Flex>
 
           {/* Newsletter */}
-          <Stack spacing={4} width={"100%"}>
+          <Stack gap={3} width={"100%"} alignItems={"center"}>
             <Heading size="sm">Stay Connected</Heading>
 
             <Text fontSize="sm" color="gray.600">
@@ -93,6 +78,26 @@ export default function Footer() {
               >
                 Subscribe
               </Button>
+            </Flex>
+            {/* Social Links*/}
+            <Flex
+              className="social-links"
+              gap={20}
+              marginTop={"2rem"}
+              fontSize="sm"
+              direction="row"
+              alignItems="center"
+              justifyContent="center"
+            >
+              <Link href="https://www.facebook.com/noonartgallery">
+                <FaFacebook size="1.5rem" />
+              </Link>
+              <Link href="https://www.instagram.com/noon_art.gallery?igsh=MWZtdTR4ZzBua2pqdg%3D%3D&utm_source=qr">
+                <FaInstagram size="1.5rem" />
+              </Link>
+              <Link href="mailto:bandar.negin@gmail.com">
+                <FiMail size="1.4rem" />
+              </Link>
             </Flex>
           </Stack>
         </Flex>

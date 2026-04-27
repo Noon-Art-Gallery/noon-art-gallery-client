@@ -224,7 +224,7 @@ link {
 }
 
 .button {
-  height: 3rem;
+  height: 3.5rem;
   overflow: hidden;
   width: 100%;
   align-self: flex-start;
@@ -232,20 +232,21 @@ link {
   color: white;
   border-radius: 100px;
   margin-top: 0.625rem;
-  @include tablet {
-    max-width: 375px;
-    align-self: center;
-  }
   &--hover {
     background-color: "#916b4e";
   }
   &--secondary {
     color: $secondary-color;
+    height: 3.5rem;
     background-color: $primary-color;
     border-color: $secondary-color;
     margin: 0;
     &--hover {
       background-color: white;
+    }
+    @include tablet {
+      max-width: 375px;
+      align-self: center;
     }
   }
   &--menu {
