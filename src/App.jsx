@@ -7,6 +7,7 @@ import LandingPage from "./pages/LandingPage/LandingPage";
 import { Provider } from "@/components/ui/provider";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import EventDetailsPage from "./pages/EventDetailsPage/EventDetailsPage";
+import CommissionPage from "./pages/CommissionPage/CommissionPage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -47,12 +48,12 @@ function App() {
   ];
   return (
     <>
-      <Provider>
-        <Navbar />
-        <Router>
+      <Router>
+        <Provider>
+          <Navbar />
           <ScrollToTop />
           <Routes>
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LandingPage workshops={workshops} />} />
             <Route
               path="/events"
               element={<EventsPage workshops={workshops} />}
@@ -61,10 +62,11 @@ function App() {
               path="/events/:eventId"
               element={<EventDetailsPage workshops={workshops} />}
             />
+            <Route path="/commission" element={<CommissionPage />} />
           </Routes>
-        </Router>
-        <Footer />
-      </Provider>
+          <Footer />
+        </Provider>
+      </Router>
     </>
   );
 }

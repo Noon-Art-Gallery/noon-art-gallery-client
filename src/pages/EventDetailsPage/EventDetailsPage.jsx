@@ -59,11 +59,18 @@ export default function EventDetailsPage({ workshops }) {
         <Text fontWeight="bold" paddingTop={"4px"}>
           Discount : Use "COUPLE2026" for $20 off when you book for two or more!
         </Text>
-
-        <stripe-buy-button
-          buy-button-id={event.buyButtonId}
-          publishable-key={event.publishableKey}
-        ></stripe-buy-button>
+        <Container
+          className="stripe-container"
+          padding={0}
+          maxW="100%"
+          display={"flex"}
+          justifyContent={"center"}
+        >
+          <stripe-buy-button
+            buy-button-id={event.buyButtonId}
+            publishable-key={event.publishableKey}
+          ></stripe-buy-button>
+        </Container>
 
         <Text fontWeight="bold" paddingTop={"4px"}>
           Location
@@ -79,6 +86,9 @@ export default function EventDetailsPage({ workshops }) {
           />
         </Box>
       </Stack>
+      <Button className="button--secondary" variant="outline">
+        Back Home
+      </Button>
     </Box>
   );
 }

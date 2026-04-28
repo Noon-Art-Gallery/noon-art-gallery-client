@@ -1,6 +1,6 @@
-import { Collection } from "react-aria-components";
 import "./LandingPage.scss";
 import InstaGallery from "@/components/InstaGallery/InstaGallery";
+import { useNavigate } from "react-router-dom";
 
 import {
   Box,
@@ -16,10 +16,11 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
+import { image } from "framer-motion/client";
 
 const collections = [
   {
-    collection: "Inner Journey",
+    title: "Inner Journey",
     works: [
       {
         title: "Becoming",
@@ -33,33 +34,50 @@ const collections = [
       },
       {
         title: "The Galaxy Within",
-        image: "/images/collections/inner-journey/the-galaxy-within.jpg",
+        image: "/images/collections/inner-journey/the-galaxy-within.jpeg",
         medium: "Oil on Canvas",
       },
     ],
   },
 ];
 
-const featuredWorks = collections[0].works;
-
-const workshops = [
+const services = [
   {
-    title: "Tote Bag Painting Workshop in Lavender field",
-    date: "July 12, Whithby",
+    title: "Commission Work",
     description:
-      "A gentle creative session focused on emotional expression and color.",
-    image: "/images/workshops/lavender2025/untitled-11.jpg",
+      "Collaborate on a personal piece that captures your emotions, memories, or dreams.",
+    image: "/images/collections/custom/spring-vase.png",
+    url: "/commission",
   },
   {
-    title: "Painting on Cap Workshop in Sunflower field",
-    date: "May 3, Toronto",
-    description: "Explore layering, texture, and depth in oil painting.",
+    title: "Painting Classes",
+    description:
+      "Learn techniques and explore your creativity in a supportive environment.",
     image:
-      "/images/workshops/sunflower2025/B073425E-51E8-4679-A67B-18D688580420_1_105_c.jpeg",
+      "/images/workshops/sunflower2025/219C3F62-47AE-4976-9E91-9C42ED68E23B_1_105_c.jpeg",
+    url: "/events",
+  },
+  {
+    title: "Mindful Art Workshops",
+    description:
+      "Experience the therapeutic power of art in calming, nature-inspired settings.",
+    image: "/images/workshops/lavender2025/untitled-7.jpg",
+    url: "/events",
+  },
+  {
+    title: "Live Painting",
+    description:
+      "Watch the creative process unfold in real time at events and exhibitions.",
+    image:
+      "/images/exhibitions/Jan2025/DCC32D21-9D23-4EA6-B7BE-E0F88449BD38_4_5005_c.jpeg",
+    url: "/events",
   },
 ];
 
-export default function HomePage() {
+const featuredWorks = collections[0].works;
+
+export default function LandingPage({ workshops }) {
+  const navigate = useNavigate();
   return (
     <Box>
       {/* Hero */}
@@ -131,10 +149,15 @@ export default function HomePage() {
             pt={2}
             backgroundColor={"transparent"}
           >
-            <Button className="button">Order an Artwork</Button>
-
-            <Button className="button button--secondary">
+            <Button className="button" onClick={() => navigate("/events")}>
               Upcoming Workshops
+            </Button>
+
+            <Button
+              className="button button--secondary"
+              onClick={() => navigate("/commission")}
+            >
+              Commission Artwork
             </Button>
           </Flex>
         </Box>
@@ -186,48 +209,52 @@ export default function HomePage() {
             healing into everyday life.
           </Text>
 
-          <Button className="button">Learn More</Button>
+          {/* Services */}
+          <Container maxW="100%">
+            <Heading margin={"1rem"}>Services</Heading>
+            <SimpleGrid
+              columns={{ base: 1, md: 2 }}
+              gap={4}
+              justifyItems="center"
+            >
+              {services.map((service) => (
+                <Box
+                  key={service.title}
+                  className="card"
+                  flexDirection={"column"}
+                  height={"20rem"}
+                >
+                  {" "}
+                  <Stack spacing={3} align="center" textAlign="center">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      w="80px"
+                      h="80px"
+                      borderRadius={"100%"}
+                      objectFit="cover"
+                    />
+                    <Text>{service.title}</Text>
+                    <Text fontSize="sm" color="rgba(44,44,44,0.7)" padding={2}>
+                      {service.description}
+                    </Text>
+                    <Button
+                      className="button"
+                      variant="outline"
+                      onClick={() => {
+                        navigate(service.url);
+                      }}
+                    >
+                      Learn More
+                    </Button>
+                  </Stack>
+                </Box>
+              ))}
+            </SimpleGrid>
+          </Container>
         </Stack>
       </Container>
-      {/* Commission Section */}
-      <Container id="commission" maxW="1200px" py={{ base: 16, md: 24 }}>
-        <Grid
-          templateColumns={{ base: "1fr", md: "1fr 1fr" }}
-          gap={{ base: 10, md: 14 }}
-          alignItems="center"
-        >
-          <Box>
-            <Image
-              src="/images/collections/custom/spring-vase.png"
-              alt="painting of a vase with flowers"
-              w="100%"
-              h={{ base: "460px", md: "560px" }}
-              objectFit="cover"
-            />
-          </Box>
 
-          <Stack spacing={6}>
-            <Text
-              textTransform="uppercase"
-              letterSpacing="0.14em"
-              fontSize="xs"
-              color="rgba(44,44,44,0.62)"
-            >
-              Commission
-            </Text>
-            <Heading>Commission a personal piece</Heading>
-            <Text className="paragraph" lineHeight="1.95">
-              Some works begin as a conversation, a memory, a feeling, a place,
-              or a moment that deserves to remain alive in visual form.
-            </Text>
-            <Text className="paragraph" lineHeight="1.95">
-              Commissioned paintings are created with care, collaboration, and
-              emotional depth.
-            </Text>
-            <Button className="button">Start a Commission</Button>
-          </Stack>
-        </Grid>
-      </Container>
       {/* Featured Works */}
       <Container id="works" maxW="1200px" py={{ base: 8, md: 14 }}>
         <Stack spacing={8}>
@@ -250,10 +277,25 @@ export default function HomePage() {
               </Heading>
             </Stack>
           </Flex>
-          <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
+          <Flex
+            gap={8}
+            overflowX="auto"
+            pb={2}
+            css={{
+              "&::-webkit-scrollbar": { display: "none" }, // مخفی کردن scrollbar
+            }}
+          >
             {featuredWorks.map((work) => (
-              <Box key={work.title}>
-                <Box overflow="hidden">
+              <Box
+                key={work.title}
+                className="card"
+                overflow="hidden"
+                minWidth="250px"
+              >
+                <Stack spacing={1} pt={4}>
+                  <Text fontSize="sm" color="rgba(44,44,44,0.58)">
+                    {collections[0].title}
+                  </Text>
                   <Image
                     src={work.image}
                     alt={work.title}
@@ -263,17 +305,22 @@ export default function HomePage() {
                     transition="transform 0.45s ease"
                     _hover={{ transform: "scale(1.02)" }}
                   />
-                </Box>
 
-                <Stack spacing={1} pt={4}>
-                  <Text fontSize="lg">{work.title}</Text>
+                  <Text fontSize="lg">Title: {work.title}</Text>
                   <Text fontSize="sm" color="rgba(44,44,44,0.58)">
-                    {work.medium}
+                    Medium: {work.medium}
+                  </Text>
+                  <Text fontSize="sm" color="rgba(44,44,44,0.58)">
+                    Size: {work.size}
+                  </Text>
+                  <Text fontSize="sm" color="rgba(44,44,44,0.58)">
+                    Description:
+                    {work.description}
                   </Text>
                 </Stack>
               </Box>
             ))}
-          </SimpleGrid>
+          </Flex>
         </Stack>
       </Container>
 
@@ -281,32 +328,21 @@ export default function HomePage() {
       <Box id="workshops" py={{ base: 16, md: 24 }}>
         <Container maxW="1200px">
           <Stack spacing={8}>
-            <Stack spacing={2}>
-              <Text
-                textTransform="uppercase"
-                letterSpacing="0.14em"
-                fontSize="xs"
-                color="rgba(44,44,44,0.62)"
-              >
-                Events
-              </Text>
-
-              <Heading
-                fontSize={{ base: "2xl", md: "4xl" }}
-                fontWeight="medium"
-              >
-                Past Workshops
-              </Heading>
-            </Stack>
-            {/* Workshops */}
+            <Text
+              textTransform="uppercase"
+              letterSpacing="0.14em"
+              fontSize="xs"
+              color="rgba(44,44,44,0.62)"
+            >
+              Events
+            </Text>
+            {/* Workshop */}
+            <Heading fontSize={{ base: "2xl", md: "4xl" }} fontWeight="medium">
+              Upcoming Workshops
+            </Heading>
             <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
               {workshops.map((item) => (
-                <Box
-                  key={item.title}
-                  p={8}
-                  border="1px solid"
-                  borderColor="rgba(44,44,44,0.08)"
-                >
+                <Box className="card" key={item.title} p={8}>
                   <Stack spacing={4}>
                     <Heading fontSize="lg" fontWeight="medium">
                       {item.title}
@@ -325,8 +361,12 @@ export default function HomePage() {
                       {item.description}
                     </Text>
 
-                    <Button className="button" variant="outline">
-                      Reserve a Seat
+                    <Button
+                      className="button"
+                      variant="outline"
+                      onClick={() => navigate(`/events/${item.id}`)}
+                    >
+                      More Details
                     </Button>
                   </Stack>
                 </Box>

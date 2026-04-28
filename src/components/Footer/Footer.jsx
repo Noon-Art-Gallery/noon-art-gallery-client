@@ -22,16 +22,18 @@ export default function Footer() {
       borderTop="1px solid"
       borderColor="gray.200"
       py={4}
+      width={"100%"}
     >
-      <Container maxW="1200px" align={"center"} alignItems={"center"}>
+      <Container align={"center"} alignItems={"center"} width={"100%"}>
         <Flex
           justify="space-between"
           direction={{ base: "column", md: "row" }}
           gap={10}
           alignItems={"center"}
+          width={"100%"}
         >
           {/* Artist Info */}
-          <Stack spacing={4} maxW="300px" alignItems={"center"}>
+          <Stack spacing={4} maxW="300px" alignItems={"center"} width={"100%"}>
             <Image
               height="5rem"
               width={20}
@@ -58,7 +60,12 @@ export default function Footer() {
           </Stack>
 
           {/* Newsletter */}
-          <Stack gap={3} width={"100%"} alignItems={"center"}>
+          <Stack
+            gap={3}
+            width={"100%"}
+            maxWidth={"375px"}
+            alignItems={"center"}
+          >
             <Heading size="sm">Stay Connected</Heading>
 
             <Text fontSize="sm" color="gray.600">
@@ -112,6 +119,7 @@ export default function Footer() {
           justify="space-between"
           direction={{ base: "column", md: "row" }}
           gap={4}
+          width={"100%"}
         >
           <Text fontSize="sm" color="gray.500" alignSelf={"center"}>
             © 2026 Noon Art Gallery. All rights reserved.
