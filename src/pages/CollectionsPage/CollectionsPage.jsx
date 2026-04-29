@@ -1,25 +1,20 @@
-import "./EventsPage.scss";
 import {
   Box,
-  Button,
   Container,
-  Flex,
-  Grid,
   Heading,
   Image,
-  Input,
-  Link,
   SimpleGrid,
   Stack,
   Text,
+  Button,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import BackButton from "@/components/BackButton/BackButton";
 
-export default function EventsPage({ workshops }) {
+export default function CollectionsPage({ collections }) {
   const navigate = useNavigate();
   const handleViewDetails = (id) => {
-    navigate(`/events/${id}`);
+    navigate(`/collections/${id}`);
   };
 
   return (
@@ -36,7 +31,7 @@ export default function EventsPage({ workshops }) {
       >
         <Image
           className="hero__background"
-          src="/images/workshops/lavender2025/untitled-5.jpg"
+          src={collections[0].works[0].image}
           position="absolute"
           top="0"
           left="0"
@@ -71,7 +66,7 @@ export default function EventsPage({ workshops }) {
             fontWeight="medium"
             backgroundColor={"transparent"}
           >
-            Events
+            Collections
           </Heading>
           <Text
             fontSize={{ base: "md", md: "lg" }}
@@ -82,19 +77,15 @@ export default function EventsPage({ workshops }) {
             color="white"
             paddingTop={"10px"}
           >
-            A quiet space to breathe, feel, and reconnect with yourself.
+            Painting emotions, thoughts, and dreams through the medium of oil on
+            canvas.
           </Text>
         </Box>
       </Container>
 
-      {/* workshops */}
-      <Container
-        maxW="100%"
-        py={16}
-        className="events__container"
-        paddingTop="0"
-      >
-        <Box id="workshops" py={{ base: 16, md: 24 }}>
+      {/* collections */}
+      <Container maxW="100%" py={16} className="card" paddingTop="0">
+        <Box id="collections" py={{ base: 16, md: 24 }}>
           <Container maxW="1200px">
             <Stack spacing={8}>
               <Stack spacing={2}>
@@ -104,14 +95,14 @@ export default function EventsPage({ workshops }) {
                   fontSize="xs"
                   color="rgba(44,44,44,0.62)"
                 >
-                  Events
+                  Collections
                 </Text>
 
                 <Heading
                   fontSize={{ base: "2xl", md: "4xl" }}
                   fontWeight="medium"
                 >
-                  Past Events
+                  {collections[0].artist}'s Artworks
                 </Heading>
               </Stack>
 
@@ -120,21 +111,21 @@ export default function EventsPage({ workshops }) {
                 columns={{ base: 1, md: 2 }}
                 gap={6}
               >
-                {workshops.map((item) => (
+                {collections.map((item) => (
                   <Box
-                    key={item.title}
+                    key={item.name}
                     p={4}
                     border="1px solid"
                     borderColor="rgba(44,44,44,0.08)"
                   >
                     <Stack spacing={2}>
                       <Heading fontSize="lg" fontWeight="medium">
-                        {item.title}
+                        {item.name}
                       </Heading>
                       <Text color="rgba(44,44,44,0.6)">{item.date}</Text>
                       <Image
-                        alt={item.title}
-                        src={item.image}
+                        alt={item.name}
+                        src={item.works[0].image}
                         w="100%"
                         h="240px"
                         objectFit="cover"
@@ -149,7 +140,7 @@ export default function EventsPage({ workshops }) {
                         variant="outline"
                         onClick={() => handleViewDetails(item.id)}
                       >
-                        View Details
+                        View Collection
                       </Button>
                     </Stack>
                   </Box>

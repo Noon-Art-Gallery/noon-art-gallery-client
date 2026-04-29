@@ -1,4 +1,5 @@
 import "./EventDetailsPage.scss";
+import BackButton from "@/components/BackButton/BackButton";
 import {
   Box,
   Button,
@@ -25,7 +26,7 @@ export default function EventDetailsPage({ workshops }) {
   if (!event) return <Text>Event not found</Text>;
   return (
     <Box>
-      <Stack spacing={4} padding={"20px"}>
+      <Stack gap={4} padding={"20px"}>
         <Text fontWeight="bold" paddingTop={"4px"}>
           Event Details
         </Text>
@@ -85,10 +86,8 @@ export default function EventDetailsPage({ workshops }) {
             loading="lazy"
           />
         </Box>
+        <BackButton url="events" />
       </Stack>
-      <Button className="button--secondary" variant="outline">
-        Back Home
-      </Button>
     </Box>
   );
 }

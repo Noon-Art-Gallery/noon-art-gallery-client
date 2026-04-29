@@ -8,10 +8,19 @@ import { Provider } from "@/components/ui/provider";
 import EventsPage from "./pages/EventsPage/EventsPage";
 import EventDetailsPage from "./pages/EventDetailsPage/EventDetailsPage";
 import CommissionPage from "./pages/CommissionPage/CommissionPage";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import CollectionsPage from "./pages/CollectionsPage/CollectionsPage";
+import CollectionDetailsPage from "./pages/CollectionDetailsPage/CollectionDetailsPage";
+import {
+  Navigate,
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
+import { button, desc, i } from "framer-motion/client";
 
 function App() {
   // const [count, setCount] = useState(0);
+
   const workshops = [
     {
       id: "1",
@@ -46,6 +55,82 @@ function App() {
         "pk_live_51TPqW8ArHQvsxUTh8lbtVwWkg8xP8gasXg8t7cihnODlKIggWndGqMxkPE4s2WeNZ4pJEPLKFk9MzHP09ybwbZov00UqWRj39t",
     },
   ];
+  const collections = [
+    {
+      id: "1",
+      name: "Inner Journey",
+      artist: "Negin Bandar",
+      description:
+        "A collection of paintings that explore the inner landscapes of the mind and soul, delving into themes of self-discovery, transformation, and the human experience.",
+
+      works: [
+        {
+          title: "Becoming",
+          image: "/images/collections/inner-journey/becoming.jpg",
+          medium: "Oil on Canvas",
+          description:
+            "A painting exploring the theme of transformation and self-discovery.",
+          price: "Please contact for price",
+          button: "Inquire",
+        },
+        {
+          title: "Consciousness in Orbit",
+          image: "/images/collections/inner-journey/consciousness-in-orbit.jpg",
+          medium: "Oil on Canvas",
+          description:
+            "A painting exploring the theme of consciousness and its relationship to the cosmos.",
+          price: "Please contact for price",
+          button: "Inquire",
+        },
+        {
+          title: "The Galaxy Within",
+          image: "/images/collections/inner-journey/the-galaxy-within.jpeg",
+          medium: "Oil on Canvas",
+          description:
+            "A painting exploring the theme of the universe and our place within it.",
+          price: "Please contact for price",
+          button: "Inquire",
+        },
+      ],
+    },
+    {
+      id: "2",
+      name: "Available for Sale",
+      artist: "Negin Bandar",
+      works: [
+        {
+          title: "Persian Calligraphy",
+          image: "/images/collections/available/persian-calligraphy.jpeg",
+          medium: "Oil on Canvas",
+          description:
+            "A painting that combines traditional Persian calligraphy with contemporary abstract forms.",
+          price: "$400",
+          button: "Purchase",
+        },
+      ],
+    },
+    {
+      id: "3",
+      name: "Commissioned Works",
+      artist: "Negin Bandar",
+      works: [
+        {
+          title: "Spring Vase",
+          image: "/images/collections/custom/spring-vase.png",
+          medium: "Oil on Canvas",
+          price: "Sold",
+          button: "Sold",
+        },
+        {
+          title: "Notte d-Amore",
+          image: "/images/collections/custom/notte-damore.jpeg",
+          medium: "Oil on Canvas",
+          price: "Sold",
+          button: "Sold",
+        },
+      ],
+    },
+  ];
   return (
     <>
       <Router>
@@ -54,6 +139,7 @@ function App() {
           <ScrollToTop />
           <Routes>
             <Route path="/" element={<LandingPage workshops={workshops} />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route
               path="/events"
               element={<EventsPage workshops={workshops} />}
@@ -63,7 +149,16 @@ function App() {
               element={<EventDetailsPage workshops={workshops} />}
             />
             <Route path="/commission" element={<CommissionPage />} />
+            <Route
+              path="/collections"
+              element={<CollectionsPage collections={collections} />}
+            />
+            <Route
+              path="/collections/:collectionId"
+              element={<CollectionDetailsPage collections={collections} />}
+            />
           </Routes>
+
           <Footer />
         </Provider>
       </Router>

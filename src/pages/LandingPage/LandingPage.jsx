@@ -321,6 +321,13 @@ export default function LandingPage({ workshops }) {
               </Box>
             ))}
           </Flex>
+          <Button
+            className="button"
+            variant="outline"
+            onClick={() => navigate("/collections")}
+          >
+            View All Collections
+          </Button>
         </Stack>
       </Container>
 
