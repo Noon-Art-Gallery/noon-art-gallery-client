@@ -56,18 +56,23 @@ export default function EventDetailsPage({ workshops }) {
         <Text fontWeight="bold" paddingTop={"4px"}>
           What's included?
         </Text>
-        <Text>{event.included}</Text>
+        <Text>
+          {event.included.map((item, index) => (
+            <Text key={index}>• {item}</Text>
+          ))}
+        </Text>
         <Text fontWeight="bold" paddingTop={"4px"}>
           Discount : Use "COUPLE2026" for $20 off when you book for two or more!
         </Text>
         <Container
           className="stripe-container"
           padding={0}
-          maxW="100%"
+          width="100%"
           display={"flex"}
           justifyContent={"center"}
         >
           <stripe-buy-button
+            width="100%"
             buy-button-id={event.buyButtonId}
             publishable-key={event.publishableKey}
           ></stripe-buy-button>
@@ -77,6 +82,7 @@ export default function EventDetailsPage({ workshops }) {
           Location
         </Text>
         <Text>{event.address}</Text>
+
         <Box borderRadius="xl" overflow="hidden">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11479.796453930963!2d-79.05455353737003!3d44.00177783739965!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89d51f36e6bee3df%3A0x55b1d1eb9f68dab9!2sTranquility%20Trails%20Farm!5e0!3m2!1sen!2sca!4v1777061630976!5m2!1sen!2sca"
@@ -86,6 +92,10 @@ export default function EventDetailsPage({ workshops }) {
             loading="lazy"
           />
         </Box>
+        <Text fontWeight="bold" paddingTop={"4px"}>
+          Refund Policy
+        </Text>
+        <Text>No refunds available for this event.</Text>
         <BackButton url="events" />
       </Stack>
     </Box>
